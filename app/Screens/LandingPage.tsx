@@ -1,23 +1,23 @@
+import { useRouter } from 'expo-router';
 import {
-    Calendar,
-    Clipboard,
-    DollarSign,
-    Smile,
-    Users,
-    Workflow,
+  Calendar,
+  Clipboard,
+  DollarSign,
+  Smile,
+  Users,
+  Workflow,
 } from 'lucide-react-native';
 import React from 'react';
 import {
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { useRouter } from 'expo-router';
 
 interface ServiceCardProps {
   title: string;
@@ -53,7 +53,7 @@ export default function LandingPage() {
   const router = useRouter();
 
   const handleAboutUsPress = () => {
-    router.push('/about-us');
+    router.push('/Screens/about-us');
   };
 
   return (
@@ -111,7 +111,6 @@ export default function LandingPage() {
               subtitle=""
               imageUrl={require('../../assets/images/aboutUs.png')}
               icon={<Users size={20} color="#EA8A47" />}
-              onPress={handleAboutUsPress}
               onPress={handleAboutUsPress}
             />
             <InfoCard
