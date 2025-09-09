@@ -53,9 +53,14 @@ export default function LandingPage() {
   const router = useRouter();
 
   const handleAboutUsPress = () => {
-    router.push('/Screens/about-us');
+    router.push('../Screens/about-us');
   };
-
+    const handleDifferencePress = () => {
+    router.push('../Screens/difference');
+  };
+ const handlePricingPress = () => {
+    router.push('../Screens/pricing');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#F8F9FA" />
@@ -79,25 +84,25 @@ export default function LandingPage() {
               title="Smile Assessment"
               backgroundColor="#F4E6D7"
               imageUrl={require('../../assets/images/smileAssessment.png')}
-              icon={<Smile size={24} color="#EA8A47" />}
+              icon={<Smile size={24} color="#FE5000BF" />}
             />
             <ServiceCard
               title="Aligner Tracker"
               backgroundColor="#F4E6D7"
               imageUrl={require('../../assets/images/alignerTracker.png')}
-              icon={<Clipboard size={24} color="#EA8A47" />}
+              icon={<Clipboard size={24} color="#FE5000BF" />}
             />
             <ServiceCard
               title="Retainers"
               backgroundColor="#F4E6D7"
               imageUrl={require('../../assets/images/retainer.png')}
-              icon={<Smile size={24} color="#EA8A47" />}
+              icon={<Smile size={24} color="#FE5000BF" />}
             />
             <ServiceCard
               title="Appointments"
               backgroundColor="#F4E6D7"
               imageUrl={require('../../assets/images/appointment.png')}
-              icon={<Calendar size={24} color="#EA8A47" />}
+              icon={<Calendar size={24} color="#FE5000BF" />}
             />
           </View>
         </View>
@@ -110,26 +115,28 @@ export default function LandingPage() {
               title="About Us"
               subtitle=""
               imageUrl={require('../../assets/images/aboutUs.png')}
-              icon={<Users size={20} color="#EA8A47" />}
+              icon={<Users size={20} color="#FE5000BF" />}
               onPress={handleAboutUsPress}
             />
             <InfoCard
               title="The Poème Difference"
               subtitle=""
               imageUrl={require('../../assets/images/difference.png')}
-              icon={<Smile size={20} color="#EA8A47" />}
+              icon={<Smile size={20} color="#FE5000BF" />}
+              onPress={handleDifferencePress}
             />
             <InfoCard
               title="Pricing"
               subtitle=""
               imageUrl={require('../../assets/images/pricing.png')}
-              icon={<DollarSign size={20} color="#EA8A47" />}
+              icon={<DollarSign size={20} color="#FE5000BF" />}
+              onPress={handlePricingPress}
             />
             <InfoCard
               title="Workflow"
               subtitle=""
               imageUrl={require('../../assets/images/workflow.png')}
-              icon={<Workflow size={20} color="#EA8A47" />}
+              icon={<Workflow size={20} color="#FE5000BF" />}
             />
           </View>
         </View>
@@ -160,7 +167,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: '#EA8A47',
+    color: '#FE5000BF',
   },
   pointsText: {
     fontSize: 24,
@@ -168,7 +175,7 @@ const styles = StyleSheet.create({
     color: '#1E3A8A',
   },
   memberBadge: {
-    backgroundColor: '#EA8A47',
+    backgroundColor: '#FE5000BF',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,

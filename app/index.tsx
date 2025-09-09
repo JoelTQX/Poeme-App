@@ -1,6 +1,5 @@
-import React from 'react';
-import LandingPage from './Screens/LandingPage';
 
-export default function HomeScreen() {
-  return <LandingPage />;
+import { Redirect } from 'expo-router';
+export default function Index() {
+  return <Redirect href="./tabs/LandingPage" />; // or "/(tabs)" if you name it index.tsx
 }

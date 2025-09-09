@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F9FA',
   },
   header: {
-    backgroundColor: '#EA8A47',
+    backgroundColor: '#FE5000BF',
     paddingHorizontal: 20,
     paddingVertical: 15,
     flexDirection: 'row',
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 320,
     borderRadius: 32,
-    backgroundColor: '#EA8A47',
+    backgroundColor: '#FE5000BF',
   },
   textContent: {
     paddingHorizontal: 24,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   quote: {
     fontSize: 36,
     fontWeight: '400',
-    color: '#EA8A47',
+    color: '#FE5000BF',
     textAlign: 'center',
     marginBottom: 40,
     lineHeight: 44,
