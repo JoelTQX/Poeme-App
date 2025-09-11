@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: '800',
     fontFamily: 'Poppins',
     color: 'white',
     flex: 1,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   description: {
-    fontSize: 17,
+    fontSize: 19,
     color: '#000000',
     textAlign: 'center',
     marginBottom: 40,

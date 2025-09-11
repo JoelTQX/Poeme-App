@@ -3,13 +3,13 @@ import { useRouter } from 'expo-router';
 import { ArrowLeft } from 'lucide-react-native';
 import React from 'react';
 import {
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
 interface CompetitorCardProps {
   brand: string;
@@ -28,53 +28,97 @@ interface PackageCardProps {
 const CompetitorCard: React.FC<CompetitorCardProps> = ({
   brand, price, description, isPoeme = false
 }) => {
-  if (isPoeme) {
-    // Return TWO blocks: orange card, then white paragraph card
-    return (
-      <>
-        <View style={[styles.competitorCard, styles.poemeCard]}>
-          <View style={styles.bestValueBadge}>
-            <Text style={styles.bestValueText}>BEST VALUE</Text>
-          </View>
+ if (isPoeme) {
+  return (
+    <>
+      <LinearGradient
+  colors={['#FE500080', '#FE5000CC']} // adjust to match your Figma stops
+  locations={[0, 1]}
+  style={[styles.competitorCard, styles.poemeCard]}
+>
+        <View style={styles.bestValueBadge}>
+          <Text style={styles.bestValueText}>BEST VALUE</Text>
+        </View>
 
-          <View style={styles.poemeHeader}>
-            <View>
-              <Text style={styles.poemeTitle}>Poème Aligners</Text>
-              <Text style={styles.poemePrice}>S$1,688 - 4288</Text>
-              <Text style={styles.poemeFeature}>✓ Simple & Complex Cases</Text>
-              <Text style={styles.poemeFeature}>✓ Honest Pricing</Text>
-              <Text style={styles.poemeFeature}>✓ Excellent Reviews</Text>
+        <View style={styles.poemeHeader}>
+          {/* LEFT COLUMN */}
+          <View style={styles.poemeLeftCol}>
+            <Text style={styles.poemeTitle}>Poème Aligners</Text>
+            <Text style={styles.poemePrice}>S$1,688 - 4288</Text>
+
+            <View style={styles.poemeFeatureRow}>
+              <Image
+                source={require('../../assets/images/check.png')}
+                style={styles.checkIcon}
+                resizeMode="contain"
+              />
+              <Text style={styles.poemeFeature}>Simple & Complex Cases</Text>
             </View>
-             <Image
-    source={require('../../assets/images/aligners.png')}
-    style={styles.alignersImage}
-    resizeMode="contain"
-  />
-          </View>
-        </View>
 
-        {/* Paragraph AFTER the orange card */}
-        <View style={styles.competitorCard}>
-          <Text style={styles.poemeDescriptionOutside}>
-            <Text style={styles.boldText}>Poème Clear Aligners</Text> is more than just a brand; 
-            we are a committed team to help you achieve your dream smile faster, honestly and of the best
-            quality. Our aligners are effective and medically certified to be BPA-free, which is safe for
-            everyday use. Most importantly, our services are affordable – everyone is deserving of a better
-            smile!
-          </Text>
+            <View style={styles.poemeFeatureRow}>
+              <Image
+                source={require('../../assets/images/check.png')}
+                style={styles.checkIcon}
+                resizeMode="contain"
+              />
+              <Text style={styles.poemeFeature}>Honest Pricing</Text>
+            </View>
+
+            <View style={styles.poemeFeatureRow}>
+              <Image
+                source={require('../../assets/images/check.png')}
+                style={styles.checkIcon}
+                resizeMode="contain"
+              />
+              <Text style={styles.poemeFeature}>Excellent Reviews</Text>
+            </View>
+          </View>
+
+          {/* RIGHT IMAGE */}
+          <Image
+            source={require('../../assets/images/aligners.png')}
+            style={styles.alignersImage}
+            resizeMode="contain"
+          />
         </View>
-      </>
-    );
-  }
+</LinearGradient>
+
+      {/* Paragraph AFTER the orange card */}
+      <View style={styles.competitorCard}>
+        <Text style={styles.poemeDescriptionOutside}>
+          <Text style={styles.boldText}>Poème Clear Aligners</Text> is more than just a brand; 
+          we are a committed team to help you achieve your dream smile faster, honestly and of the best
+          quality. Our aligners are effective and medically certified to be BPA-free, which is safe for
+          everyday use. Most importantly, our services are affordable – everyone is deserving of a better
+          smile!
+        </Text>
+      </View>
+    </>
+  );
+}
+
 
   // non-Poème brands (single white card)
-  return (
-    <View style={styles.competitorCard}>
-      <Text style={styles.brandName}>{brand}</Text>
-      <Text style={styles.brandDescription}>{description}</Text>
-      <Text style={styles.brandPrice}>{price}</Text>
+  // Inside CompetitorCard (non-Poème return part)
+return (
+  <View style={styles.competitorCard}>
+    <View style={styles.competitorRow}>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.brandName}>{brand}</Text>
+        <Text style={styles.brandDescription}>{description}</Text>
+        <Text style={styles.brandPrice}>{price}</Text>
+      </View>
+
+      {/* Teeth image on the right */}
+      <Image
+        source={require('../../assets/images/teeth.png')}
+        style={styles.teethImage}
+        resizeMode="contain"
+      />
     </View>
-  );
+  </View>
+);
+
 };
 
 
@@ -227,7 +271,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: '800',
     fontFamily: 'Poppins',
     color: 'white',
     flex: 1,
@@ -248,9 +292,9 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 19,
-    fontWeight: '700',
+    fontWeight: '800',
     color: '#00205B',
-    marginBottom: 20,
+    marginBottom: 10,
     fontFamily: 'Poppins',
     letterSpacing: -0.24,
   },
@@ -275,9 +319,11 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   poemeCard: {
-    backgroundColor: '#FE5000BF',
-    position: 'relative',
-  },
+  borderRadius: 16,
+  position: 'relative',
+  padding: 20,
+  marginBottom: 16,
+},
   bestValueBadge: {
     position: 'absolute',
     top: 16,
@@ -301,10 +347,10 @@ const styles = StyleSheet.create({
   },
   poemeTitle: {
     fontSize: 18,
-    fontWeight: '600',
-    color: 'white',
+    fontWeight: '800',
+    color: 'black',
     marginBottom: 8,
-    fontFamily: 'Poppins',
+    fontFamily: 'Manrope',
   },
   poemePrice: {
     fontSize: 24,
@@ -317,7 +363,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'white',
     marginBottom: 4,
-    fontFamily: 'Poppins',
+    fontFamily: 'Manrope',
   },
   toothImageContainer: {
     width: 60,
@@ -359,7 +405,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'regular',
     color: '#1F2937',
-    fontFamily: 'Inter',
+    fontFamily: 'Manrope',
   },
   packageCard: {
     
@@ -422,4 +468,34 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     letterSpacing: -0.24,
   },
+poemeLeftCol: {
+  flex: 1,
+  paddingRight: 12,
+},
+
+poemeFeatureRow: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 4,
+},
+
+checkIcon: {
+  width: 16,
+  height: 16,
+  marginRight: 8,
+  tintColor: 'lightgreen', // keeps the check white; remove if your PNG is already colored
+},
+competitorRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+
+teethImage: {
+  width: 74,
+  height: 74,
+  marginLeft: 12,
+},
+
+
 });

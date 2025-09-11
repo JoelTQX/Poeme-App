@@ -61,6 +61,9 @@ export default function LandingPage() {
  const handlePricingPress = () => {
     router.push('../Screens/pricing');
   };
+   const hanleWorkFlowPress = () => {
+    router.push('../Screens/workflow');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#F8F9FA" />
@@ -136,7 +139,9 @@ export default function LandingPage() {
               title="Workflow"
               subtitle=""
               imageUrl={require('../../assets/images/workflow.png')}
-              icon={<Workflow size={20} color="#FE5000BF" />}
+              icon={<Workflow size={20} color="#FE5000BF" />
+            }
+            onPress={hanleWorkFlowPress}
             />
           </View>
         </View>
