@@ -96,10 +96,9 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   heroImage: {
-    width: '100%',
-    height: 320,
+    width: 382,
+    height: 365,
     borderRadius: 32,
-    backgroundColor: '#FE5000BF',
   },
   textContent: {
     paddingHorizontal: 24,

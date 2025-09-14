@@ -83,16 +83,16 @@ const CompetitorCard: React.FC<CompetitorCardProps> = ({
         </View>
 </LinearGradient>
 
-      {/* Paragraph AFTER the orange card */}
-      <View style={styles.competitorCard}>
-        <Text style={styles.poemeDescriptionOutside}>
-          <Text style={styles.boldText}>Poème Clear Aligners</Text> is more than just a brand; 
-          we are a committed team to help you achieve your dream smile faster, honestly and of the best
-          quality. Our aligners are effective and medically certified to be BPA-free, which is safe for
-          everyday use. Most importantly, our services are affordable – everyone is deserving of a better
-          smile!
-        </Text>
-      </View>
+    {/* Paragraph AFTER the orange card */}
+<View style={styles.poemeDescriptionContainer}>
+  <Text style={styles.poemeDescriptionOutside}>
+    <Text style={styles.boldText}>Poème Clear Aligners</Text> is more than just a brand; 
+    we are a committed team to help you achieve your dream smile faster, honestly and of the best
+    quality. Our aligners are effective and medically certified to be BPA-free, which is safe for
+    everyday use. Most importantly, our services are affordable – everyone is deserving of a better
+    smile!
+  </Text>
+</View>
     </>
   );
 }
@@ -224,7 +224,10 @@ export default function PricingScreen() {
             locations={[0, 1]}
             style={styles.ctaButton}
           >
-            <TouchableOpacity style={styles.ctaButtonInner}>
+                        <TouchableOpacity 
+              style={styles.ctaButtonInner}
+              onPress={() => router.push('../Screens/smileAssessmentPage1')}
+            >
               <Text style={styles.ctaButtonText}>Take Your Free Smile Assessment</Text>
             </TouchableOpacity>
           </LinearGradient>
@@ -284,6 +287,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: '#F8F9FA',
+     paddingHorizontal: 17,
   },
   section: {
     paddingHorizontal: 24,
@@ -494,7 +498,12 @@ competitorRow: {
 teethImage: {
   width: 74,
   height: 74,
-  marginLeft: 12,
+  marginLeft:40,
+},
+poemeDescriptionContainer: {
+  marginTop: 5,
+  marginBottom: 20,
+  paddingHorizontal: 4,  // keeps alignment with rest of text
 },
 
 

@@ -2,13 +2,13 @@ import { useRouter } from 'expo-router';
 import { ArrowLeft } from 'lucide-react-native';
 import React from 'react';
 import {
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 interface WorkflowStepProps {
@@ -187,8 +187,8 @@ imageCol: {
   },
   titleContainer: {
     paddingHorizontal: 40,
-    paddingTop: 24,
-    paddingBottom: 32,
+    paddingTop: 13,
+    paddingBottom: 13,
   },
   stepContent: {
   flexDirection: 'row',
@@ -222,10 +222,10 @@ imageCol: {
     paddingVertical: 20,
   },
 leftCol: {
-  width: 83,
+  width: 50,
   justifyContent: 'flex-start',
   alignItems: 'center',
-  marginRight:20,
+   marginRight: 12,       
   
 },
 
@@ -254,7 +254,7 @@ stepCard: {
   shadowOpacity: 0.1,
   shadowRadius: 15,
   elevation: 8,
-  minHeight: 250, // 👈 adjust until all cards look balanced
+  minHeight: 230, // 👈 adjust until all cards look balanced
 },
   textContent: {
     flex: 1,
@@ -304,11 +304,12 @@ stepCard: {
   stepRow: {
   flexDirection: 'row',
   paddingHorizontal: 20,
-  marginBottom: 40,
+  marginBottom: 24,
 },
 
 rightCol: {
   flex: 1,
+  marginRight: 22,  
 },
 
 });

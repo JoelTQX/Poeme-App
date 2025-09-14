@@ -194,31 +194,35 @@ const styles = StyleSheet.create({
   },
   pointsLabel: {
     fontSize: 16,
-    color: '#1E3A8A',
+    color: '#00205B',
     fontWeight: '500',
     textAlign: 'right',
     marginTop: -24,
   },
   section: {
     paddingHorizontal: 20,
-    marginBottom: 32,
+    marginBottom: 20,
   },
   sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#1E3A8A',
+    fontSize: 19,
+    fontWeight: '700',
+    color: '#00205B',
     marginBottom: 20,
+    fontFamily:'Poppins'
+  
   },
   servicesGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   serviceCard: {
-    width: '48%',
+    width: 182,
+    height:175,
+     marginHorizontal: 5,
     aspectRatio: 1,
     borderRadius: 20,
-    marginBottom: 16,
+    marginBottom: 10,
     overflow: 'hidden',
     shadowColor: '#000',
     shadowOffset: {
@@ -237,14 +241,18 @@ const styles = StyleSheet.create({
   infoGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   infoCardContainer: {
-    width: '48%',
-    marginBottom: 16,
+    width: 178,
+    height:125,
+    marginBottom: 70,
+    marginHorizontal: 6,
+
   },
   infoCard: {
     width: '100%',
+   
     aspectRatio: 1.2,
     marginBottom: 8,
     borderRadius: 16,
@@ -259,9 +267,9 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   infoCardLabel: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '600',
-    color: '#1E3A8A',
+    color: '#00205B',
     textAlign: 'center',
   },
   fullInfoCardImage: {
