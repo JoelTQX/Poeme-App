@@ -1,13 +1,19 @@
-import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { useRouter } from 'expo-router';
+import React, { useEffect } from 'react';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 export default function ProfileScreen() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Navigate to signUpPage1 when profile tab is accessed
+    router.replace('../Screens/signUpPage1');
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Profile</Text>
-        <Text style={styles.subtitle}>Manage your account and preferences</Text>
-      </View>
+      {/* This content won't be visible as we redirect immediately */}
+      <View style={styles.content} />
     </SafeAreaView>
   );
 }

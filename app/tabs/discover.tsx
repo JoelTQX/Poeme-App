@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { testimonials } from '../data/testimonials';
   const handlePress1=() => {
     router.push('../Screens/about-us');
   };
@@ -97,24 +98,12 @@ export default function DiscoverScreen() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   // ===== Local images via require(...) =====
-  const testimonialImages = {
-    sarah: require('../../assets/images/testimonial1.png'),
-    michael: require('../../assets/images/testimonial2.png'),
-    emma: require('../../assets/images/testimonial3.png'),
-    james: require('../../assets/images/testimonial1.png'),
-  } as const;
-
+  
   const blogImages = {
     cleaningAligners: require('../../assets/images/blog1.png'),
     maintainAligners: require('../../assets/images/blog2.png'),
   } as const;
 
-  const testimonials: TestimonialProps[] = [
-    { source: testimonialImages.sarah, name: 'Sarah Johnson' },
-    { source: testimonialImages.michael, name: 'Michael Chen' },
-    { source: testimonialImages.emma, name: 'Emma Davis' },
-    { source: testimonialImages.james, name: 'James Wilson' },
-  ];
 
   const blogPosts: BlogPostProps[] = [
     {
@@ -200,8 +189,16 @@ export default function DiscoverScreen() {
             style={styles.testimonialsScroll}
             contentContainerStyle={styles.testimonialsContent}
           >
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} source={testimonial.source} name={testimonial.name}   />
+            {testimonials.map((t: { id: React.Key | null | undefined; thumbnail: ImageSourcePropType | undefined; name: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }) => (
+              <TouchableOpacity
+                key={t.id}
+                style={styles.testimonialCard}
+                onPress={() =>
+                  router.push(`/Screens/testimonialPage?id=${t.id}`)
+                }
+              >
+                <Image source={t.thumbnail} style={styles.testimonialImage} />
+              </TouchableOpacity>
             ))}
           </ScrollView>
         </View>
