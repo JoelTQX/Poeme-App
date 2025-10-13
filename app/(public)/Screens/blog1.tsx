@@ -38,7 +38,7 @@ export default function Blog1Screen() {
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <Image
-          source={require('../../assets/images/blog1_im1.png')}
+          source={require('../../../assets/images/blog1_im1.png')}
           style={styles.initialImage}
           resizeMode="cover"
         />
@@ -58,7 +58,7 @@ export default function Blog1Screen() {
         </Text>
 
         <Image
-          source={require('../../assets/images/blog1_img2.png')}
+          source={require('../../../assets/images/blog1_img2.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />
@@ -81,7 +81,7 @@ export default function Blog1Screen() {
         </BulletItem>
 
         <Image
-          source={require('../../assets/images/blog1_img3.png')}
+          source={require('../../../assets/images/blog1_img3.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />
@@ -109,7 +109,7 @@ export default function Blog1Screen() {
         </BulletItem>
 
         <Image
-          source={require('../../assets/images/blog1_img4.png')}
+          source={require('../../../assets/images/blog1_img4.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />
@@ -128,7 +128,7 @@ export default function Blog1Screen() {
         </BulletItem>
 
         <Image
-          source={require('../../assets/images/blog1_img5.png')}
+          source={require('../../../assets/images/blog1_img5.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />
@@ -145,7 +145,7 @@ export default function Blog1Screen() {
         </BulletItem>
 
         <Image
-          source={require('../../assets/images/blog1_img6.png')}
+          source={require('../../../assets/images/blog1_img6.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />
@@ -159,7 +159,7 @@ export default function Blog1Screen() {
         </BulletItem>
 
         <Image
-          source={require('../../assets/images/blog1_img6.png')}
+          source={require('../../../assets/images/blog1_img6.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />
@@ -172,7 +172,7 @@ export default function Blog1Screen() {
         <BulletItem>If a clear aligner attachment(s) comes off.</BulletItem>
 
         <Image
-          source={require('../../assets/images/blog1_img7.png')}
+          source={require('../../../assets/images/blog1_img7.png')}
           style={styles.blogImage}
           resizeMode="cover"
         />

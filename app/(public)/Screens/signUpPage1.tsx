@@ -1,7 +1,8 @@
-import { useRouter } from 'expo-router';
-import { Eye, EyeOff } from 'lucide-react-native';
-import React, { useState } from 'react';
+import { useRouter } from "expo-router";
+import { Eye, EyeOff } from "lucide-react-native";
+import React, { useState } from "react";
 import {
+  Alert,
   Image,
   SafeAreaView,
   StyleSheet,
@@ -9,42 +10,51 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
+import { useAuthActions } from "../../../src/hooks/useAuthActions";
 
 export default function SignUpPage1() {
   const router = useRouter();
-  const [email, setEmail] = useState('12345@gmail.com');
-  const [password, setPassword] = useState('*******');
+  const [email, setEmail] = useState("12345@gmail.com");
+  const [password, setPassword] = useState("*******");
   const [showPassword, setShowPassword] = useState(false);
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
 
+  const { loading, signIn, signUp } = useAuthActions();
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-    const handleLogIn = () => {
-    router.push('../Screens/signUpPage2');
+  const handleLogIn = async () => {
+    // router.push('../Screens/signUpPage2');
+    try {
+      await signIn(email, password);
+      router.replace("/"); // or your redirectPath
+    } catch (e: any) {
+      Alert.alert("Sign in failed", e?.message ?? String(e));
+    }
   };
 
   const handleSignUp = () => {
-    console.log('Navigate to Sign Up');
+    console.log("Navigate to Sign Up");
+    router.push("../Screens/signUpPage2");
   };
 
-
   const handleForgotPassword = () => {
-    console.log('Forgot Password pressed');
+    console.log("Forgot Password pressed");
   };
 
   const handleEmailFocus = () => {
     if (!emailFocused) {
-      setEmail('');
+      setEmail("");
       setEmailFocused(true);
     }
   };
 
   const handlePasswordFocus = () => {
     if (!passwordFocused) {
-      setPassword('');
+      setPassword("");
       setPasswordFocused(true);
     }
   };
@@ -55,7 +65,7 @@ export default function SignUpPage1() {
         {/* Logo Section */}
         <View style={styles.logoContainer}>
           <Image
-            source={require('../../assets/images/logo.png')}
+            source={require("../../../assets/images/logo.png")}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -63,7 +73,7 @@ export default function SignUpPage1() {
 
         {/* Sign In Form */}
         <View style={styles.formContainer}>
-          <Text style={styles.title}>Sign in to your{'\n'}Account</Text>
+          <Text style={styles.title}>Sign in to your{"\n"}Account</Text>
           <Text style={styles.subtitle}>
             Enter your email and password to log in
           </Text>
@@ -119,7 +129,7 @@ export default function SignUpPage1() {
 
           {/* Sign Up Link */}
           <View style={styles.signUpContainer}>
-            <Text style={styles.signUpText}>Don't have an account? </Text>
+            <Text style={styles.signUpText}>Dont have an account? </Text>
             <TouchableOpacity onPress={handleSignUp}>
               <Text style={styles.signUpLink}>Sign Up</Text>
             </TouchableOpacity>
@@ -133,7 +143,7 @@ export default function SignUpPage1() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
   },
   content: {
     flex: 1,
@@ -142,7 +152,6 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     marginBottom: 32,
-
   },
   logo: {
     marginTop: 35,
@@ -155,17 +164,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: '600',
-    color: '#00205B',
+    fontWeight: "600",
+    color: "#00205B",
     marginBottom: 12,
-    fontFamily: 'Times New Roman',
-    letterSpacing:-0.64
+    fontFamily: "Times New Roman",
+    letterSpacing: -0.64,
   },
   subtitle: {
     fontSize: 14,
-    color: '#6C7278',
+    color: "#6C7278",
     marginBottom: 20,
-    fontFamily: 'Inter',
+    fontFamily: "Inter",
     lineHeight: 18.2,
   },
   inputContainer: {
@@ -173,36 +182,36 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     fontSize: 16,
-    color: '#6C7278',
+    color: "#6C7278",
     marginBottom: 8,
-    fontFamily: 'Poppins',
-    fontWeight: '500',
+    fontFamily: "Poppins",
+    fontWeight: "500",
   },
   textInput: {
     borderWidth: 1,
-    borderColor: '#D1D5DB',
+    borderColor: "#D1D5DB",
     borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 16,
     fontSize: 16,
-    fontFamily: 'Poppins',
-    backgroundColor: '#F9FAFB',
+    fontFamily: "Poppins",
+    backgroundColor: "#F9FAFB",
   },
   passwordContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderWidth: 1,
-    borderColor: '#D1D5DB',
+    borderColor: "#D1D5DB",
     borderRadius: 12,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: "#F9FAFB",
   },
   passwordInput: {
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 16,
     fontSize: 16,
-    fontFamily: 'Poppins',
-    color: 'rgba(0, 0, 0, 0.15)',
+    fontFamily: "Poppins",
+    color: "rgba(0, 0, 0, 0.15)",
   },
   eyeButton: {
     paddingHorizontal: 16,
@@ -210,22 +219,22 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     fontSize: 12,
-    color: '#4D81E7',
-    textAlign: 'right',
-    fontWeight: '600',
+    color: "#4D81E7",
+    textAlign: "right",
+    fontWeight: "600",
     lineHeight: 19.6,
     marginBottom: 20,
-    fontFamily: 'Inter',
+    fontFamily: "Inter",
   },
   loginButton: {
-    backgroundColor: '#FE5000BF',
+    backgroundColor: "#FE5000BF",
     borderRadius: 50,
-    borderColor: '#FE5000',
+    borderColor: "#FE5000",
     height: 48,
-    justifyContent: 'center', // vertical centering
-    alignItems: 'center', // horizontal centering
+    justifyContent: "center", // vertical centering
+    alignItems: "center", // horizontal centering
     marginBottom: 20,
-    shadowColor: '#FE5000BF',
+    shadowColor: "#FE5000BF",
     shadowOffset: { width: 10, height: 10 },
     shadowOpacity: 0.4,
     shadowRadius: 9,
@@ -233,25 +242,25 @@ const styles = StyleSheet.create({
   },
   loginButtonText: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#FFFFFF',
-    fontFamily: 'Poppins',
-    textAlign: 'center', // ensures text is centered
+    fontWeight: "600",
+    color: "#FFFFFF",
+    fontFamily: "Poppins",
+    textAlign: "center", // ensures text is centered
   },
   signUpContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   signUpText: {
     fontSize: 16,
-    color: '#6B7280',
-    fontFamily: 'Poppins',
+    color: "#6B7280",
+    fontFamily: "Poppins",
   },
   signUpLink: {
     fontSize: 16,
-    color: '#3B82F6',
-    fontWeight: '600',
-    fontFamily: 'Poppins',
+    color: "#3B82F6",
+    fontWeight: "600",
+    fontFamily: "Poppins",
   },
 });

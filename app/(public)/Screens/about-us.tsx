@@ -30,7 +30,7 @@ export default function AboutUsScreen() {
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.imageContainer}>
           <Image
-            source={require('../../assets/images/aboutUsPage.png')}
+            source={require('../../../assets/images/aboutUsPage.png')}
             style={styles.heroImage}
             resizeMode="cover"
           />
@@ -38,7 +38,7 @@ export default function AboutUsScreen() {
 
         <View style={styles.textContent}>
           <Text style={styles.quote}>
-            "The Poetry of{'\n'}perfecting smiles"
+            The Poetry of{'\n'}perfecting smiles
           </Text>
 
           <Text style={styles.description}>

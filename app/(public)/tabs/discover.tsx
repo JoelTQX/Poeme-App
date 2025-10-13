@@ -100,8 +100,8 @@ export default function DiscoverScreen() {
   // ===== Local images via require(...) =====
   
   const blogImages = {
-    cleaningAligners: require('../../assets/images/blog1.png'),
-    maintainAligners: require('../../assets/images/blog2.png'),
+    cleaningAligners: require('../../../assets/images/blog1.png'),
+    maintainAligners: require('../../../assets/images/blog2.png'),
   } as const;
 
 

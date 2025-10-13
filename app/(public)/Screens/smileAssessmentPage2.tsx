@@ -25,11 +25,11 @@ function calcTileSize() {
 const TILE_SIZE = calcTileSize();
 
 const photoExamples = [
-  { src: require('../../assets/images/smile1.png'), hasCheckIcon: true },
-  { src: require('../../assets/images/smile2.png'), hasCheckIcon: false },
-  { src: require('../../assets/images/smile3.png'), hasCheckIcon: false },
-  { src: require('../../assets/images/smile4.png'), hasCheckIcon: false },
-  { src: require('../../assets/images/smile5.png'), hasCheckIcon: false },
+  { src: require('../../../assets/images/smile1.png'), hasCheckIcon: true },
+  { src: require('../../../assets/images/smile2.png'), hasCheckIcon: false },
+  { src: require('../../../assets/images/smile3.png'), hasCheckIcon: false },
+  { src: require('../../../assets/images/smile4.png'), hasCheckIcon: false },
+  { src: require('../../../assets/images/smile5.png'), hasCheckIcon: false },
 ];
 
 export default function SmilePage2() {
@@ -40,12 +40,12 @@ export default function SmilePage2() {
     <View style={styles.root}>
       {/* Backgrounds pinned to the real bottom (stacked PNGs) */}
       <Image
-        source={require('../../assets/images/bg2.png')}
+        source={require('../../../assets/images/bg2.png')}
         style={styles.bottomBg2}
         resizeMode="cover"
       />
       <Image
-        source={require('../../assets/images/bg3.png')}
+        source={require('../../../assets/images/bg3.png')}
         style={styles.bottomBg3}
         resizeMode="cover"
       />
@@ -132,7 +132,7 @@ export default function SmilePage2() {
           <View style={styles.card}>
             <Image
               style={styles.dentalChart}
-              source={require('../../assets/images/smile6.png')}
+              source={require('../../../assets/images/smile6.png')}
               resizeMode="contain"
             />
           </View>

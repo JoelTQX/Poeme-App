@@ -29,7 +29,7 @@ export default function SmileAssessmentPage1() {
     <View style={styles.root}>
       {/* peach background pinned to the real bottom */}
       <Image
-        source={require('../../assets/images/bg1.png')}
+        source={require('../../../assets/images/bg1.png')}
         style={styles.bottomBg}
         resizeMode="cover"
       />

@@ -2,14 +2,16 @@ import { useRouter } from 'expo-router';
 import { ArrowLeft, ChevronDown, Eye, EyeOff } from 'lucide-react-native';
 import React, { useState } from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import { useAuthActions } from "../../../src/hooks/useAuthActions";
 
 export default function SignUpPage2() {
   const router = useRouter();
@@ -32,6 +34,8 @@ export default function SignUpPage2() {
   const [confirmPasswordFocused, setConfirmPasswordFocused] = useState(false);
   const [emailFocused, setEmailFocused] = useState(false);
   const [mobileNumberFocused, setMobileNumberFocused] = useState(false);
+
+  const { loading, signUp } = useAuthActions();
 
   const handleFirstNameFocus = () => {
     if (!firstNameFocused) {
@@ -83,8 +87,14 @@ export default function SignUpPage2() {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     console.log('Sign Up pressed');
+    try {
+      await signUp(email, password, firstName, lastName, mobileNumber, age, gender) ;
+      router.replace('/'); // or your redirectPath
+    } catch (e: any) {
+      Alert.alert('Sign up failed', e?.message ?? String(e));
+    }
   };
 
   return (

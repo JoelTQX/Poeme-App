@@ -40,13 +40,13 @@ export default function SmileAssessmentPage3() {
       <View pointerEvents="none" style={styles.bottomLayer}>
         {/* Base wave pinned to real bottom */}
         <Image
-          source={require('../../assets/images/bg5.png')}
+          source={require('../../../assets/images/bg5.png')}
           style={[styles.bgBase, { height: BG5_HEIGHT }]}
           resizeMode="cover"
         />
         {/* Top wave lifted to overlap the base */}
         <Image
-          source={require('../../assets/images/bg4.png')}
+          source={require('../../../assets/images/bg4.png')}
           style={[styles.bgTop, { height: BG4_HEIGHT, bottom: OVERLAP }]}
           resizeMode="cover"
         />
@@ -64,7 +64,7 @@ export default function SmileAssessmentPage3() {
 
             <View style={styles.imageContainer}>
               <Image
-                source={require('../../assets/images/workingOnIt.png')}
+                source={require('../../../assets/images/workingOnIt.png')}
                 style={styles.doctorsImage}
                 resizeMode="cover"
               />

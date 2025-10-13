@@ -29,7 +29,7 @@ const workflowSteps = [
     price: "FREE",
     priceColor: "#10B981",
     backgroundColor: "#FE50004C",
-    imageUrl: require('../../assets/images/workflow1.png'),
+    imageUrl: require('../../../assets/images/workflow1.png'),
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const workflowSteps = [
     description: "Get a comprehensive exam and digital scan to create your personalized treatment plan.",
     price: "$120",
     priceColor: "#3B82F6",
-    imageUrl: require('../../assets/images/workflow2.png'),
+    imageUrl: require('../../../assets/images/workflow2.png'),
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const workflowSteps = [
     price: "FREE",
     priceColor: "#10B981",
     backgroundColor: "#FE50004C",
-    imageUrl: require('../../assets/images/workflow3.png'),
+    imageUrl: require('../../../assets/images/workflow3.png'),
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const workflowSteps = [
     description: "Your custom aligners are fabricated with precision and care, ensuring a comfortable fit.",
     price: "$1688",
     priceColor: "#3B82F6",
-    imageUrl: require('../../assets/images/workflow4.png'),
+    imageUrl: require('../../../assets/images/workflow4.png'),
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ const workflowSteps = [
     price: "FREE",
     priceColor: "#10B981",
     backgroundColor: "#FE50004C",
-    imageUrl: require('../../assets/images/workflow5.png'),
+    imageUrl: require('../../../assets/images/workflow5.png'),
   },
 ];
 

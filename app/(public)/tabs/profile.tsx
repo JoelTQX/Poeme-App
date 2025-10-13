@@ -8,6 +8,7 @@ export default function ProfileScreen() {
   useEffect(() => {
     // Navigate to signUpPage1 when profile tab is accessed
     router.replace('../Screens/signUpPage1');
+    // router.push('../../sign-in');
   }, []);
 
   return (

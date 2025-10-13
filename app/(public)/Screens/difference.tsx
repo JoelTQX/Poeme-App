@@ -43,7 +43,7 @@ export default function DifferenceScreen() {
             <View style={styles.featureItem}>
               <View style={styles.iconContainer}>
                   <Image 
-    source={require('../../assets/images/tooth1.png')} // adjust path
+    source={require('../../../assets/images/tooth1.png')} // adjust path
        style={styles.iconImage}
     resizeMode="contain"
   />
@@ -57,7 +57,7 @@ export default function DifferenceScreen() {
             <View style={styles.featureItem}>
               <View style={styles.iconContainer}>
                 <Image 
-    source={require('../../assets/images/tooth2.png')} // adjust path
+    source={require('../../../assets/images/tooth2.png')} // adjust path
        style={styles.iconImage}
     resizeMode="contain"
   />
@@ -71,7 +71,7 @@ export default function DifferenceScreen() {
             <View style={styles.featureItem}>
               <View style={styles.iconContainer}>
                <Image 
-    source={require('../../assets/images/tooth3.png')} // adjust path
+    source={require('../../../assets/images/tooth3.png')} // adjust path
        style={styles.iconImage}
     resizeMode="contain"
   />
@@ -85,7 +85,7 @@ export default function DifferenceScreen() {
             <View style={styles.featureItem}>
               <View style={styles.iconContainer}>
                 <Image 
-    source={require('../../assets/images/tooth4.png')} // adjust path
+    source={require('../../../assets/images/tooth4.png')} // adjust path
        style={styles.iconImage}
     resizeMode="contain"
   />

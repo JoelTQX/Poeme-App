@@ -1,4 +1,5 @@
-import { useRouter } from 'expo-router';
+import { useAuth } from "@/app/_layout";
+import { useRouter } from "expo-router";
 import {
   Calendar,
   Clipboard,
@@ -6,8 +7,8 @@ import {
   Smile,
   Users,
   Workflow,
-} from 'lucide-react-native';
-import React from 'react';
+} from "lucide-react-native";
+import React from "react";
 import {
   Image,
   SafeAreaView,
@@ -17,7 +18,7 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
 
 interface ServiceCardProps {
   title: string;
@@ -34,16 +35,39 @@ interface InfoCardProps {
   onPress?: () => void;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon, imageUrl, backgroundColor }) => (
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  title,
+  icon,
+  imageUrl,
+  backgroundColor,
+}) => (
   <TouchableOpacity style={[styles.serviceCard, { backgroundColor }]}>
-    {imageUrl && <Image source={imageUrl} style={styles.fullCardImage} resizeMode="cover" />}
+    {imageUrl && (
+      <Image
+        source={imageUrl}
+        style={styles.fullCardImage}
+        resizeMode="cover"
+      />
+    )}
   </TouchableOpacity>
 );
 
-const InfoCard: React.FC<InfoCardProps> = ({ title, subtitle, icon, imageUrl, onPress }) => (
+const InfoCard: React.FC<InfoCardProps> = ({
+  title,
+  subtitle,
+  icon,
+  imageUrl,
+  onPress,
+}) => (
   <View style={styles.infoCardContainer}>
     <TouchableOpacity style={styles.infoCard} onPress={onPress}>
-      {imageUrl && <Image source={imageUrl} style={styles.fullInfoCardImage} resizeMode="cover" />}
+      {imageUrl && (
+        <Image
+          source={imageUrl}
+          style={styles.fullInfoCardImage}
+          resizeMode="cover"
+        />
+      )}
     </TouchableOpacity>
     <Text style={styles.infoCardLabel}>{title}</Text>
   </View>
@@ -51,26 +75,31 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, subtitle, icon, imageUrl, on
 
 export default function LandingPage() {
   const router = useRouter();
+  const { session, ready } = useAuth();
+  const user = session?.user;
 
   const handleAboutUsPress = () => {
-    router.push('../Screens/about-us');
+    router.push("../Screens/about-us");
   };
-    const handleDifferencePress = () => {
-    router.push('../Screens/difference');
+  const handleDifferencePress = () => {
+    router.push("../Screens/difference");
   };
- const handlePricingPress = () => {
-    router.push('../Screens/pricing');
+  const handlePricingPress = () => {
+    router.push("../Screens/pricing");
   };
-   const hanleWorkFlowPress = () => {
-    router.push('../Screens/workflow');
+  const hanleWorkFlowPress = () => {
+    router.push("../Screens/workflow");
   };
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#F8F9FA" />
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
           <View style={styles.headerTop}>
-            <Text style={styles.welcomeText}>Welcome!</Text>
+            <Text style={styles.welcomeText}>Welcome! { user?.email }</Text>
             <Text style={styles.pointsText}>69</Text>
           </View>
           <View style={styles.memberBadge}>
@@ -81,30 +110,30 @@ export default function LandingPage() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>How can we help you today?</Text>
-          
+
           <View style={styles.servicesGrid}>
             <ServiceCard
               title="Smile Assessment"
               backgroundColor="#F4E6D7"
-              imageUrl={require('../../assets/images/smileAssessment.png')}
+              imageUrl={require("../../../assets/images/smileAssessment.png")}
               icon={<Smile size={24} color="#FE5000BF" />}
             />
             <ServiceCard
               title="Aligner Tracker"
               backgroundColor="#F4E6D7"
-              imageUrl={require('../../assets/images/alignerTracker.png')}
+              imageUrl={require("../../../assets/images/alignerTracker.png")}
               icon={<Clipboard size={24} color="#FE5000BF" />}
             />
             <ServiceCard
               title="Retainers"
               backgroundColor="#F4E6D7"
-              imageUrl={require('../../assets/images/retainer.png')}
+              imageUrl={require("../../../assets/images/retainer.png")}
               icon={<Smile size={24} color="#FE5000BF" />}
             />
             <ServiceCard
               title="Appointments"
               backgroundColor="#F4E6D7"
-              imageUrl={require('../../assets/images/appointment.png')}
+              imageUrl={require("../../../assets/images/appointment.png")}
               icon={<Calendar size={24} color="#FE5000BF" />}
             />
           </View>
@@ -112,36 +141,35 @@ export default function LandingPage() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Who are we?</Text>
-          
+
           <View style={styles.infoGrid}>
             <InfoCard
               title="About Us"
               subtitle=""
-              imageUrl={require('../../assets/images/aboutUs.png')}
+              imageUrl={require("../../../assets/images/aboutUs.png")}
               icon={<Users size={20} color="#FE5000BF" />}
               onPress={handleAboutUsPress}
             />
             <InfoCard
               title="The Poème Difference"
               subtitle=""
-              imageUrl={require('../../assets/images/difference.png')}
+              imageUrl={require("../../../assets/images/difference.png")}
               icon={<Smile size={20} color="#FE5000BF" />}
               onPress={handleDifferencePress}
             />
             <InfoCard
               title="Pricing"
               subtitle=""
-              imageUrl={require('../../assets/images/pricing.png')}
+              imageUrl={require("../../../assets/images/pricing.png")}
               icon={<DollarSign size={20} color="#FE5000BF" />}
               onPress={handlePricingPress}
             />
             <InfoCard
               title="Workflow"
               subtitle=""
-              imageUrl={require('../../assets/images/workflow.png')}
-              icon={<Workflow size={20} color="#FE5000BF" />
-            }
-            onPress={hanleWorkFlowPress}
+              imageUrl={require("../../../assets/images/workflow.png")}
+              icon={<Workflow size={20} color="#FE5000BF" />}
+              onPress={hanleWorkFlowPress}
             />
           </View>
         </View>
@@ -153,7 +181,7 @@ export default function LandingPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: "#F8F9FA",
   },
   scrollView: {
     flex: 1,
@@ -164,39 +192,39 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   headerTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
     marginBottom: 12,
   },
   welcomeText: {
     fontSize: 36,
-    fontWeight: 'bold',
-    color: '#FE5000BF',
+    fontWeight: "bold",
+    color: "#FE5000BF",
   },
   pointsText: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#1E3A8A',
+    fontWeight: "bold",
+    color: "#1E3A8A",
   },
   memberBadge: {
-    backgroundColor: '#FE5000BF',
+    backgroundColor: "#FE5000BF",
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
     marginBottom: 4,
   },
   memberText: {
-    color: 'white',
-    fontWeight: '600',
+    color: "white",
+    fontWeight: "600",
     fontSize: 14,
   },
   pointsLabel: {
     fontSize: 16,
-    color: '#00205B',
-    fontWeight: '500',
-    textAlign: 'right',
+    color: "#00205B",
+    fontWeight: "500",
+    textAlign: "right",
     marginTop: -24,
   },
   section: {
@@ -205,26 +233,25 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 19,
-    fontWeight: '700',
-    color: '#00205B',
+    fontWeight: "700",
+    color: "#00205B",
     marginBottom: 20,
-    fontFamily:'Poppins'
-  
+    fontFamily: "Poppins",
   },
   servicesGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   serviceCard: {
     width: 182,
-    height:175,
-     marginHorizontal: 5,
+    height: 175,
+    marginHorizontal: 5,
     aspectRatio: 1,
     borderRadius: 20,
     marginBottom: 10,
-    overflow: 'hidden',
-    shadowColor: '#000',
+    overflow: "hidden",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -234,30 +261,29 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   fullCardImage: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderRadius: 20,
   },
   infoGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   infoCardContainer: {
     width: 178,
-    height:125,
+    height: 125,
     marginBottom: 70,
     marginHorizontal: 6,
-
   },
   infoCard: {
-    width: '100%',
-   
+    width: "100%",
+
     aspectRatio: 1.2,
     marginBottom: 8,
     borderRadius: 16,
-    overflow: 'hidden',
-    shadowColor: '#000',
+    overflow: "hidden",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -268,13 +294,13 @@ const styles = StyleSheet.create({
   },
   infoCardLabel: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#00205B',
-    textAlign: 'center',
+    fontWeight: "600",
+    color: "#00205B",
+    textAlign: "center",
   },
   fullInfoCardImage: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderRadius: 16,
   },
 });
