@@ -1,25 +1,30 @@
 import Slider from '@react-native-community/slider';
 import { useRouter } from 'expo-router';
 import { ArrowLeft } from 'lucide-react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    Dimensions,
-    Image,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { useAssessment } from '../../../src/context/SmileAssessmentContext';
 
 const { width } = Dimensions.get('window');
 
 export default function SmileAssessmentPage1() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const [urgencyValue, setUrgencyValue] = useState(5);
-  const [description, setDescription] = useState('');
+
+  // 3. REPLACE useState with useAssessment()
+   //const [urgencyValue, setUrgencyValue] = useState(5);
+  // const [description, setDescription] = useState('');
+  const { urgency, setUrgencyValue, description, setDescription } = useAssessment();
 
   const handleSliderChange = (value: number) => {
     setUrgencyValue(Math.round(value));
@@ -62,7 +67,7 @@ export default function SmileAssessmentPage1() {
                 style={styles.slider}
                 minimumValue={1}
                 maximumValue={10}
-                value={urgencyValue}
+                value={urgency}
                 onValueChange={handleSliderChange}
                 step={1}
                 minimumTrackTintColor="#EA8A47"

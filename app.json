@@ -10,14 +10,20 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.POEME-APP-FINAL"
+      "bundleIdentifier": "com.anonymous.POEME-APP-FINAL",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow POEME to access your camera to take photos for your smile assessment."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -26,7 +32,13 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Allow POEME to access your camera to take photos for your smile assessment."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
